@@ -4,6 +4,7 @@ import './App.css';
 import HydraulicDiagram from './HydraulicDiagram';
 import animationImage from './assets/Animation/Animation-photo.png';
 import BOMImage from './assets/BOM/BOM.jpg';
+import animationVideo from './assets/Animation/Animation.mp4'
 function App() {
   
   const [currentScreen, setCurrentScreen] = useState('home');
@@ -95,12 +96,14 @@ function App() {
 
         {currentScreen === 'video' &&  (
           <div className="page-center"><h1 className="page-heading">Animation</h1>
-          <img
-  src={animationImage}
-  alt="Animation-photo"
-  className="animation-image"
-/>
-           
+           <video
+      className="animation-video"
+      controls
+      playsInline
+      src={animationVideo}
+    >
+      Your browser does not support the video tag.
+    </video>
           </div>
         )}
 
