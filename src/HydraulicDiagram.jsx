@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './HydraulicDiagram.css';
-
+const withBase = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
 const points = [
   {
     id: 1,
@@ -91,10 +91,10 @@ export default function HydraulicDiagram() {
 
       <div className="hydraulic-diagram__wrap">
         <img
-          className="hydraulic-diagram__base"
-          src="/hydraulic-diagram/image0.jpg"
-          alt="Hydraulic Power Unit reference diagram"
-        />
+  className="hydraulic-diagram__base"
+  src={withBase('/hydraulic-diagram/image0.jpg')}
+  alt="Hydraulic Power Unit reference diagram"
+/>
 
         {points.map((point) => (
           <button
@@ -158,10 +158,10 @@ export default function HydraulicDiagram() {
 
             <div className="hydraulic-diagram__modal-body">
               <img
-                src={current.image}
-                alt={`${current.title} reference`}
-                className="hydraulic-diagram__reference-image"
-              />
+  src={withBase(current.image)}
+  alt={`${current.title} reference`}
+  className="hydraulic-diagram__reference-image"
+/>
             </div>
 
             <div className="hydraulic-diagram__modal-nav">

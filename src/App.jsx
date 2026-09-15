@@ -9,8 +9,13 @@ function App() {
   
   const [currentScreen, setCurrentScreen] = useState('home');
   const [showOverview, setShowOverview] = useState(false);
-  const [notes, setNotes] = useState('');
-  const [showSaved, setShowSaved] = useState(false);
+  const [noteText, setNoteText] = useState('');
+  const handleSave = () => {
+    
+    alert(`Note Saved: ${noteText}`);
+   
+  };
+
 
   return (
     <div className="app-container">
@@ -122,12 +127,21 @@ function App() {
         {currentScreen === 'notes' && (
           <div>
             <h2 className="notes-heading">Write your notes here</h2>
+            <div className="notes-form-layout">
             <textarea
               className="notes-box"
-              value={notes}
-              onChange={(e) => setNotes(e.target.value)}
+              value={noteText}
+              onChange={(e) => setNoteText(e.target.value)}
               placeholder="Start typing..."
             />
+            <button 
+      type="button" 
+      className="btn-save" 
+      onClick={handleSave}
+    >
+      Save
+    </button>
+    </div> 
           </div>
         )}
       </div>

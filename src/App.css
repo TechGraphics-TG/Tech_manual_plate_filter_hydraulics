@@ -1,15 +1,30 @@
+html,
+body {
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+}
+
 .app-container {
   display: flex;
+  
   height: 100vh;
+  width: 100%;
 }
 
 .sidebar {
-  width: 240px;
+  position: fixed;   
+  top: 0;            
+  bottom: 0;         
+  left: 0;           
+  width: 240px;      /* 👈 The exact width of the sidebar */
   background-color: lightblue;
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
   padding: 20px;
   gap: 12px;
+  box-sizing: border-box; /* 👈 Crucial when padding is used with position: fixed */
 }
 
 .sidebar button {
@@ -37,17 +52,18 @@
 }
 
 .main-screen {
-  flex: 1;
+  flex-grow: 1;
+  margin-left: 240px; /* 👈 Exactly matches the width of your sidebar */
   background-color: white;
   color: black;
   padding: 40px;
+  box-sizing: border-box;
 }
-
-/*.home-heading {
+.home-heading {
   font-size: 32px;
   margin-bottom: 20px;
   color: #0d47a1;
-}*/
+}
 
 .page-center {
   text-align: center;
@@ -94,6 +110,30 @@
   border-radius: 8px;
   resize: vertical;
 }
+.notes-form-layout {
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start;
+  gap: 16px;             
+  margin-top: 12px;
+}
+.btn-save {
+  align-self: flex-start;    
+  background-color: #3498db;  
+  color: white;               
+  border: none;
+  border-radius: 6px;
+  padding: 10px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+
+.btn-save:hover {
+  background-color: #2980b9;  
+}
 
 .overview-subheading {
   font-size: 20px;
@@ -125,3 +165,12 @@
   display: block;
   border-radius: 12px;
 }
+
+.BOM-image {
+  width: 100%;
+  max-width: 900px;
+  margin: 30px auto;
+  display: block;
+  border-radius: 12px;
+}
+
